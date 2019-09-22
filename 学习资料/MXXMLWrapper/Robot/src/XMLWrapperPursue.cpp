@@ -1,0 +1,24 @@
+#include "StdAfx.h"
+#include "XMLWrapperPursue.h"
+
+BEGIN_IMPL_SERIALIZATION_CLASS(CXMLWrapperPursue)
+REGISTER_CLASS(PursueEntity)
+REGISTER_ATTRIBUTE(CXMLWrapperPursue,Object1ID,VALUE)
+REGISTER_ATTRIBUTE(CXMLWrapperPursue,Object2ID,VALUE)
+REGISTER_ATTRIBUTE(CXMLWrapperPursue,Range,VALUE)
+REGISTER_ATTRIBUTE(CXMLWrapperPursue,SlaveRatio,VALUE)
+END_IMPL_SERIALIZATION_CLASS
+
+
+CXMLWrapperPursue::CXMLWrapperPursue( void )
+{
+	INIT_ATTRIBUTE_LONG(Object1ID)
+		INIT_ATTRIBUTE_LONG(Object2ID)
+		INIT_ATTRIBUTE_FLOAT(Range)
+		INIT_ATTRIBUTE_FLOAT(SlaveRatio)
+}
+
+CXMLWrapperPursue::~CXMLWrapperPursue( void )
+{
+
+}

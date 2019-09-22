@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VeinConnectionEditorV2</class>
+ <widget class="QWidget" name="VeinConnectionEditorV2">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>882</width>
+    <height>874</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>SimLaparo</string>
+  </property>
+  <widget class="QListView" name="veinobj_list">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>161</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+  </widget>
+  <widget class="QListView" name="surface_list">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>40</y>
+     <width>171</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>VeinObj(Editor Version)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>10</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>BezierSurface</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="new_veinobj_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>New VeinObj</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="debug_text">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>500</y>
+     <width>201</width>
+     <height>181</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSlider" name="snum_slider">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>240</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>2</number>
+   </property>
+   <property name="maximum">
+    <number>50</number>
+   </property>
+   <property name="sliderPosition">
+    <number>10</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="uv_btn">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>290</y>
+     <width>51</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>uv</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="read_editable_vein_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>290</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>读取编辑文件</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="rd_file_lineedit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>320</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="wr_file_lineedit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="save_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>400</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>导出运行时格式</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>210</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>S num :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>280</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T num :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="snum_lable">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>210</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tnum_label">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>280</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="tnum_slider">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>300</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>2</number>
+   </property>
+   <property name="maximum">
+    <number>50</number>
+   </property>
+   <property name="value">
+    <number>10</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="whole_ckb">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>370</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>移动整体</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="point_ckb">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>400</y>
+     <width>111</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>编辑控制点</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="new_surface_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>230</y>
+     <width>161</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>New Surface</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="visible_btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>490</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>显示/隐藏曲面</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="wire_btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>设置/取消网格模式</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="convexhull_btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>550</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>显示/隐藏ConvexHull</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="rotation_ckb">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>400</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>旋转整体</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="scale_ckb">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>430</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>缩放</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="attach_btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>640</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>全部检测附着</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="checkDist_slider">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>610</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>2</number>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="value">
+    <number>5</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>590</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>检测距离:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="chekDist_label">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>590</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.05</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="reset_btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>670</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>全部取消附着</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="quad_ckb">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>460</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>选择面片</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="subpoint_ckb">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>430</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>编辑生成点</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="multiselect_ckb">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>360</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>多选</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="attach_selected_btn">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>640</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>检测附着选择点</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="reset_selected_btn">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>670</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消附着选择点</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>10</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Organ</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="dynobj_list">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>40</y>
+     <width>201</width>
+     <height>211</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dynobj_visible_btn">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>270</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>显示/隐藏</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="save_editformat_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>360</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>保存为编辑格式</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="delete_face_btn">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>460</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>删除选中面片</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>340</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>整体</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>340</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>关于控制点/生成点</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="organ_step_slider">
+   <property name="geometry">
+    <rect>
+     <x>489</x>
+     <y>350</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>0</number>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+   <property name="sliderPosition">
+    <number>0</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>320</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>step:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>390</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>410</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Y:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>430</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Z:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="x_offset_label">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>390</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="z_offset_label">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>430</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="y_offset_label">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>410</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="xAddBtn">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>390</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="zAddBtn">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>430</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="yAddBtn">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>410</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="xMinusBtn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>390</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="yMinusBtn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>410</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="zMinusBtn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>430</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="organ_step_label">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>322</y>
+     <width>54</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="initialize_btn">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>610</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>初始化</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="refresh_btn">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>810</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>计算Tm</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="xR1Btn">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>510</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="zR2Btn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>550</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>510</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="xR2Btn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>510</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>530</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Y:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="zR1Btn">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>550</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="yR2Btn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>530</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>550</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Z:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="yR1Btn">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>530</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saveObjBtn">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>360</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Obj</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="subdivideBtn">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>650</y>
+     <width>71</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>细分</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="areaLine">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>650</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.0035</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>650</y>
+     <width>72</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>细分面积</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>720</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SSS - a</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sssarLine">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>740</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.032</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sssagLine">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>740</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.070</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sssabLine">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>740</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.145</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>670</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SSS - s'</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ssssgLine">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>690</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.88</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ssssrLine">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>690</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.74</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ssssbLine">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>690</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1.01</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>770</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>eta</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sssetaLine">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>770</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1.3</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="DividePair0Btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>720</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>方向1分割</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="DividePair1Btn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>760</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>方向2分割</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="PairVisibleBtn">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>720</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>显示/隐藏分割结果</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,143 @@
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251 /wd4275 /wd4193 /wd4819")
+
+
+INCLUDE_DIRECTORIES("./")
+INCLUDE_DIRECTORIES("charts/")
+INCLUDE_DIRECTORIES("include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/Include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/MXCommon/include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/MXXMLWrapper/Common/include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/MXXMLWrapper/Robot/include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/MXXMLWrapper/UI/include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/Share/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/Share/cuda")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/Share/NetworkCodec")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/Share/UI")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/MXRobot/include/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/MXRobot/")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/HardwareSystem/")
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
+
+
+############################################################
+# Ogre
+############################################################
+INCLUDE_DIRECTORIES(${OGRE_INCLUDE_DIRECTORIES})
+LINK_DIRECTORIES(${OGRE_LIBRARY_DIRECTORIES})
+FILE(GLOB OGRE_RUNTIME ${OGRE_HOME}/bin/*.dll)
+INSTALL(FILES ${OGRE_RUNTIME} DESTINATION .)
+
+############################################################
+# OpenHaptics
+############################################################
+INCLUDE_DIRECTORIES("${OPENHAPTICS_DIR}/include/")
+INCLUDE_DIRECTORIES("${OPENHAPTICS_DIR}/utilities/include/")
+FILE(GLOB OPENHAPTICS_RUNTIME ${OPENHAPTICS_DIR}/lib/*.dll)
+INSTALL(FILES ${OPENHAPTICS_RUNTIME} DESTINATION .)
+LINK_DIRECTORIES("${OPENHAPTICS_DIR}/lib/")
+LINK_DIRECTORIES("${OPENHAPTICS_DIR}/utilities/lib/")
+FILE(GLOB OPENHAPTICS_RUNTIME ${OPENHAPTICS_DIR}/lib/utilities/*.dll)
+INSTALL(FILES ${OPENHAPTICS_RUNTIME} DESTINATION .)
+
+############################################################
+# BASS
+############################################################
+INCLUDE_DIRECTORIES(${BASS_INCLUDE_DIRECTORIES})
+LINK_DIRECTORIES(${BASS_LIBARY_DIRECTORIES})
+INSTALL(FILES ${BASS_RUNTIME_FILES} DESTINATION .)
+
+############################################################
+# qt
+############################################################
+set(QT_QMAKE_EXECUTABLE ${QT_ROOT}/bin/qmake)
+INCLUDE_DIRECTORIES(${QT_ALL_INCLUDE_DIRECTORIES})
+LINK_DIRECTORIES(${QT_ALL_LIBRARY_DIRECTORIES})
+add_definitions(${QT_DEFINITIONS})
+FILE(GLOB QT_RUNTIME ${QT_ROOT}/bin/*.dll)
+INSTALL(FILES ${QT_RUNTIME} DESTINATION .)
+INSTALL(DIRECTORY ${QT_ROOT}/plugins/ DESTINATION ./plugins)
+
+
+############################################################
+# POPPLER-QT5
+############################################################
+INCLUDE_DIRECTORIES("${POPPLER_QT5}/include")
+LINK_DIRECTORIES("${POPPLER_QT5}/lib")
+FILE(GLOB POPPLER_RUNTIME ${POPPLER_QT5}/bin/*.dll)
+INSTALL(FILES ${POPPLER_RUNTIME} DESTINATION .)
+INSTALL(DIRECTORY ${POPPLER_QT5}/bin/ DESTINATION .)
+
+
+############################################################
+# SYLIB
+############################################################
+INCLUDE_DIRECTORIES("${SYLIB}")
+INCLUDE_DIRECTORIES("${SYLIB}/FFMPEG/3.2/include")
+INCLUDE_DIRECTORIES("${SYLIB}/jrtplib3")
+INCLUDE_DIRECTORIES("${SYLIB}/jthread")
+INCLUDE_DIRECTORIES("${SYLIB}/MxVideoCodec/include")
+
+LINK_DIRECTORIES("${SYLIB}/FFMPEG/3.2/lib/x86")
+LINK_DIRECTORIES("${SYLIB}/jrtplib3/lib/x86")
+LINK_DIRECTORIES("${SYLIB}/jthread/lib/x86")
+LINK_DIRECTORIES("${SYLIB}/MxVideoCodec/lib/x86")
+FILE(GLOB SYLIB_RUNTIME ${SYLIB}/FFMPEG/3.2/bin/x86/*.dll)
+INSTALL(FILES ${SYLIB_RUNTIME} DESTINATION .)
+
+FILE(GLOB SHARE_HEADERS "../Share/*.h" "../Share/NetworkCodec/*.h" 	"../Share/UI/*.h")
+FILE(GLOB SHARE_SOURCES "../Share/*.cpp" "../Share/NetworkCodec/*.cpp" "../Share/UI/*.cpp")
+FILE(GLOB SHARE_CUDA_HEADERS "../Share/cuda/*.h")
+FILE(GLOB SHARE_CUDA_SOURCES "../Share/cuda/*.cpp")
+
+FILE(GLOB Window_HEADERS "Window/*.h")
+FILE(GLOB Window_SOURCES "Window/*.cpp")
+FILE(GLOB LOGIC_HEADERS "Logic/*.h")
+FILE(GLOB LOGIC_SOURCES "Logic/*.cpp")
+FILE(GLOB FORMS "form/*.ui" "../Share/UI/form/*.ui")
+FILE(GLOB RES "SYLapMentor.rc")
+
+QT5_WRAP_CPP(HEADERS_MOC ${Window_HEADERS} ${LOGIC_HEADERS} ${SHARE_HEADERS})
+QT5_WRAP_UI(FORMS_HEADERS ${FORMS}) 
+SOURCE_GROUP(MxWindow FILES ${Window_HEADERS} ${Window_SOURCES})
+SOURCE_GROUP(MxLogic FILES ${LOGIC_HEADERS} ${LOGIC_SOURCES})
+SOURCE_GROUP(UI FILES ${FORMS})
+SOURCE_GROUP(Other\\ui_head FILES ${FORMS_HEADERS})
+SOURCE_GROUP(Other\\moc_cxx FILES ${HEADERS_MOC})
+SOURCE_GROUP(Other\\res FILES ${RES})
+
+SOURCE_GROUP(share FILES ${SHARE_HEADERS} ${SHARE_SOURCES})
+SOURCE_GROUP(share\\cuda FILES ${SHARE_CUDA_HEADERS} ${SHARE_CUDA_SOURCES})
+
+add_definitions("-DTIXML_USE_STL")
+add_definitions(-DUNICODE -D_UNICODE)
+INCLUDE_DIRECTORIES("Window/")
+INCLUDE_DIRECTORIES("Logic/")
+LINK_DIRECTORIES("${PROJECT_SOURCE_DIR}/lib/")
+
+add_executable(SYLapMentor ${Window_HEADERS} ${Window_SOURCES} ${LOGIC_HEADERS} ${LOGIC_SOURCES} ${HEADERS_MOC} ${FORMS_HEADERS} ${RES} ${SHARE_HEADERS} ${SHARE_SOURCES} ${SHARE_CUDA_HEADERS} ${SHARE_CUDA_SOURCES})
+
+SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /level='requireAdministrator' /uiAccess='false'" )
+#SET_TARGET_PROPERTIES(SYLapMentor PROPERTIES LINK_FLAGS "/SAFESEH:NO")
+SET_TARGET_PROPERTIES(SYLapMentor PROPERTIES WIN32_EXECUTABLE TRUE)
+SET_TARGET_PROPERTIES(SYLapMentor PROPERTIES LINK_FLAGS "/DEBUG")
+
+set(PLATFORM_LINKFLAGS "/SAFESEH:NO")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${PLATFORM_LINKFLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} ${PLATFORM_LINKFLAGS_DEBUG}")
+set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${PLATFORM_LINKFLAGS}")
+
+TARGET_LINK_LIBRARIES(SYLapMentor PhantomLib SYCommon HardwareSystem MXRobot)
+
+set(CMAKE_LINK_LIBRARY_SUFFIX "")
+
+TARGET_LINK_LIBRARIES(SYLapMentor Strmiids.lib.lib)
+TARGET_LINK_LIBRARIES(SYLapMentor poppler-qt5.lib.lib)
+TARGET_LINK_LIBRARIES(SYLapMentor avcodec.lib.lib avformat.lib.lib avutil.lib.lib swresample.lib.lib swscale.lib.lib)
+TARGET_LINK_LIBRARIES(SYLapMentor OgreMain.lib.lib OgreOverlay.lib.lib OgreRTShaderSystem.lib.lib ${QT_ALL_LIBARIES})
+TARGET_LINK_LIBRARIES(SYLapMentor Wlanapi.lib.lib)
+TARGET_LINK_LIBRARIES(SYLapMentor MxVideoCodec.lib.lib jthread.lib.lib jrtplib.lib.lib)
+
+
+if(X64)
+	TARGET_LINK_LIBRARIES(SYLapMentor libgcc.a.lib)
+endif(X64)

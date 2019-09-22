@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HotchpotchEditorWidget</class>
+ <widget class="QWidget" name="HotchpotchEditorWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>703</width>
+    <height>823</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>SimLaparo</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>451</width>
+     <height>811</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>basic</string>
+    </attribute>
+    <widget class="QPushButton" name="FrameVisibleBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>211</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>显示/隐藏选择蓝框</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Organ</string>
+     </property>
+    </widget>
+    <widget class="QListView" name="DynObjList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>211</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::DoubleClicked</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ExportOrganObjBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>310</y>
+       <width>211</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>导出器官OBJ格式文件</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab2">
+    <attribute name="title">
+     <string>view</string>
+    </attribute>
+    <widget class="QListView" name="ViewDetectionObjList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>201</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::DoubleClicked</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ViewDetection</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDXABtn">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>380</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDXMBtn">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>380</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>310</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Temp</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>360</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>平移</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDYMBtn">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>420</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDYABtn">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>420</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDZMBtn">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>460</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDZABtn">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>460</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>380</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>x</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>420</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>y</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>460</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>z</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>20</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>位置</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="VDPosLabel">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>60</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>x,y,z</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="AddVDBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add One</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="AddVDBtn_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>280</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remove One</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>100</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MinCos</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="VDMinCosLabel">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>100</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0.0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>140</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>DetectDist</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="VDDetectDistLabel">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>140</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0.0</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDChangeMinCosBtn">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>420</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change MinCos</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDChangeDistBtn">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>380</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change Dist</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDDetectDistBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>380</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>检测距离</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VDSetPosBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>420</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设置位置</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab3">
+    <attribute name="title">
+     <string>OrganDoodle</string>
+    </attribute>
+    <widget class="QPushButton" name="AddDoodleBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>20</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Doodle</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SaveDoodleResultBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>100</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>save result</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="BrushColorRedLE">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>BrushColor</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="BrushColorGreenLE">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="BrushColorBlueLE">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>255</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="BrushColorAlphaLE">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>255</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>10</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>BrushSize</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="BrushSizeLe">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>40</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0.01</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>54</width>
+       <height>12</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>rgba</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ToggleShowEdgeBtn">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ToogleShowEdge</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="LoadImageIntoDoodleBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>60</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Load </string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="BrushSizeSlider">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>70</y>
+       <width>160</width>
+       <height>19</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QTextEdit" name="InfoText">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>300</y>
+     <width>201</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_34">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>270</y>
+     <width>72</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="OpenBtn">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>20</y>
+     <width>121</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开启编辑</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OpenLabel">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>22</y>
+     <width>54</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Off</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TrainEditModeLabel">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>60</y>
+     <width>54</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Off</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="TrainingEditModeBtn">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>60</y>
+     <width>121</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开启训练编辑模式</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="StepSlider">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>610</y>
+     <width>191</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>540</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Common Step</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="StepScaleLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>570</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1.0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>570</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Scale</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="StepLabel">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>540</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.0</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PosXLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>700</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.0</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PosYLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>740</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.0</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PosZLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>780</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>660</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Common Position</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>110</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>已选择器官：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OrganSelectedLabel">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>140</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Null</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

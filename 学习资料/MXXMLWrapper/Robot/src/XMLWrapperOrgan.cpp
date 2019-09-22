@@ -1,0 +1,415 @@
+/**Author:zx**/
+#include "StdAfx.h"
+#include "XMLWrapperOrgan.h"
+#include "XMLWrapperLiquid.h"
+
+BEGIN_IMPL_SERIALIZATION_CLASS(CXMLWrapperOrgan)
+	REGISTER_CLASS(Organ)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Name,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,AnimationFile,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,PhysicFile,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FFDFile,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,MXFile,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,LayerName, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,UnionedObjID,VALUE)
+	
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,S3MFile,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,S1MFile,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,MaterialName,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,MaterialNameArray,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanAutoCreate, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanCut,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanClamp,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,DistributeMass, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,PartName,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanPuncture,VALUE)
+	
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanSmoke,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanBlood,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanSpark,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BloodType,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanShedBlood,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanBigClip,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,DeleteSuperTriangle,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanAttachHemoClip,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanElectricCoagulation,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanFire,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanDissect,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanHook,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,IsMensentary,VALUE)
+	
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Type,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ID,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Mass,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Stiffness,VALUE)
+
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,EdgePhysStiff, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,EdgePhysDamp, VALUE)
+
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TetraPhysStiff, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TetraPhysDamp, VALUE)
+
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FacePhysStiff, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FacePhysDamp, VALUE)
+
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Poissonrate,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Damp,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,PointDamp,VALUE)
+	//REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Strength,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FurtherStrength,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,RSCollideHardNess,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,PulsePoints, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,DisableSSCollide,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,RSfrictcoeff,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,LinearDamping,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,AngularDamping,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,RSMaxPenetrate,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,SurfaceNodeMassMultiply,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,RSContactMode,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FixPointStiffness,VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExpandValue, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExpandCenterPos, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExpandPlanePoint1, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExpandPlanePoint2, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExpandPlanePoint3, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BleedingSpeed,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TopolgyType,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,EffectTexSize,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BurnRadius,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BurnRation,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,RSCollideMargin,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TubeRendRadius,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TubeFixSection,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TubeAttachs,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,IncTubeRootRadius,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,IncTubeRootWeight,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ConnectMass,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CutMaterialName,VALUE)
+	
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,PointResistence,VALUE)
+  	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,GravityValue,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CustomGravityDir,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,AddBendForce,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,NativeMaterialName,VALUE)
+	//REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ScalLengthRatio,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,HomingForce,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan, RestScaleRatio, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ForceFeedbackRatio,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,PointForceMin,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TubeRadius,VALUE)
+
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan, AttachStaticMesh, VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan, AttachStaticMeshThresHold, VALUE)
+
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Diameter,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FireEffectValue,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ObstacleIDs,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CutThreshold,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan, CrossDir, VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan, CanBluntDissection, VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Marks,ARRAY)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InitPos,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InitQuat,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,SceneMeshInitPosOffset,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,SceneMeshInitScaleOffset,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CollideWithTool, VALUE)
+
+	
+	// register
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,SphereRadius,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InitSize,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,RigidType,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ShowMesh,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,StaticObject,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InitClipPos,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InitClipQuat,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InitToolNearPoint,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BindPoint,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,FixedPoints,VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExpandedPoints,VALUE)    
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CustomNormalPoints,VALUE)
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,UnderControl,VALUE)
+
+    REGISTER_ATTRIBUTE(CXMLWrapperOrgan,InnerLiquid,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BloodDirPointID,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,HasBloodDirPoint,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,BloodFlowFrameNum,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,TurntoScaffoldMode,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CutActionParticleParam,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Liquids,ARRAY)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,SurplusRatio,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,JudgeOrignGeomery,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Force_X_K,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Force_X_B,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Force_Y_K,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Force_Y_B,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Force_Z_K,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,Force_Z_B,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanOrganForce,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanAdhesionForce,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ExcuHeldPoints,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanMapping,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,MappingMode,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanMultPoint,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanVision,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanRedScreen,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,OgranElectricTime,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CanOgranTube,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,OgranForceMaxValue,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,OgranForceMinValue,VALUE)
+
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,GallSideWeight,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,LiverSideWeight,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ConnectStiffnessScale,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ConnectNodeDistanceStiffness,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,CoonectTetraVolumeStiffness,VALUE)
+
+
+	//used for the new mode of the old veinconnobj 
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,VeinObjNewMode,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ConnStayNum,VALUE)
+	REGISTER_ATTRIBUTE(CXMLWrapperOrgan,ConnReduceNum,VALUE)
+END_IMPL_SERIALIZATION_CLASS
+
+CXMLWrapperOrgan::CXMLWrapperOrgan(void)
+{
+	INIT_ATTRIBUTE_STRING(Name)
+	INIT_ATTRIBUTE_STRING(AnimationFile)
+	INIT_ATTRIBUTE_STRING(PhysicFile)
+	INIT_ATTRIBUTE_STRING(FFDFile)
+	INIT_ATTRIBUTE_STRING(S3MFile)
+	INIT_ATTRIBUTE_STRING(S1MFile)
+	INIT_ATTRIBUTE_STRING(MXFile)
+	INIT_ATTRIBUTE_STRING_VALUE(LayerName ,"default")
+	
+	INIT_ATTRIBUTE_STRING(MaterialName)
+	INIT_ATTRIBUTE_STRING(MaterialNameArray)
+	INIT_ATTRIBUTE_STRING(NativeMaterialName)
+	INIT_ATTRIBUTE_BOOL_VALUE(CanAutoCreate,true)
+	INIT_ATTRIBUTE_BOOL(CanCut)
+	INIT_ATTRIBUTE_BOOL(IsMensentary)
+	INIT_ATTRIBUTE_BOOL(CanClamp)
+	INIT_ATTRIBUTE_BOOL_VALUE(CanPuncture, true)
+
+	INIT_ATTRIBUTE_BOOL(DistributeMass)
+	INIT_ATTRIBUTE_BOOL_VALUE(DistributeMass, false)
+	INIT_ATTRIBUTE_BOOL(ExcuHeldPoints)
+	INIT_ATTRIBUTE_BOOL_VALUE(ExcuHeldPoints,false);
+
+	INIT_ATTRIBUTE_BOOL(CanMapping)
+	INIT_ATTRIBUTE_BOOL(MappingMode)
+	
+	INIT_ATTRIBUTE_BOOL(DeleteSuperTriangle)
+	INIT_ATTRIBUTE_BOOL(CanSmoke)
+	INIT_ATTRIBUTE_BOOL(CanBlood)
+	INIT_ATTRIBUTE_BOOL(CanSpark)
+	INIT_ATTRIBUTE_LONG(BloodType)
+	INIT_ATTRIBUTE_BOOL(CanShedBlood)
+
+	INIT_ATTRIBUTE_BOOL(CanBigClip)
+
+	INIT_ATTRIBUTE_BOOL(CanAttachHemoClip)
+	INIT_ATTRIBUTE_BOOL(CanElectricCoagulation)
+	INIT_ATTRIBUTE_BOOL(CanFire)
+	INIT_ATTRIBUTE_BOOL(CanDissect)
+	INIT_ATTRIBUTE_BOOL(CanHook)
+	INIT_ATTRIBUTE_LONG(Type)
+	INIT_ATTRIBUTE_LONG(ID)
+	INIT_ATTRIBUTE_LONG(UnionedObjID)
+
+	INIT_ATTRIBUTE_FLOAT(Mass)
+	INIT_ATTRIBUTE_FLOAT(Stiffness)
+    INIT_ATTRIBUTE_FLOAT(Poissonrate)
+
+	INIT_ATTRIBUTE_FLOAT(EdgePhysStiff)
+	INIT_ATTRIBUTE_FLOAT(EdgePhysDamp)
+
+	INIT_ATTRIBUTE_FLOAT(TetraPhysStiff)
+	INIT_ATTRIBUTE_FLOAT(TetraPhysDamp)
+
+	INIT_ATTRIBUTE_FLOAT(FacePhysStiff)
+	INIT_ATTRIBUTE_FLOAT(FacePhysDamp)
+
+	INIT_ATTRIBUTE_FLOAT(Damp)
+	INIT_ATTRIBUTE_STRING(PointDamp)
+	//INIT_ATTRIBUTE_FLOAT(Strength)
+	INIT_ATTRIBUTE_FLOAT(FurtherStrength)
+	INIT_ATTRIBUTE_STRING(FixPointStiffness)
+    INIT_ATTRIBUTE_FLOAT(ExpandValue)
+    INIT_ATTRIBUTE_FLOAT3(ExpandCenterPos)
+    INIT_ATTRIBUTE_FLOAT3(ExpandPlanePoint1)
+    INIT_ATTRIBUTE_FLOAT3(ExpandPlanePoint2)
+    INIT_ATTRIBUTE_FLOAT3(ExpandPlanePoint3)
+	INIT_ATTRIBUTE_FLOAT_VALUE(BleedingSpeed,0.f)
+	
+
+	INIT_ATTRIBUTE_FLOAT(RSCollideHardNess)
+	INIT_ATTRIBUTE_BOOL(DisableSSCollide)
+	INIT_ATTRIBUTE_FLOAT(RSfrictcoeff)
+	INIT_ATTRIBUTE_FLOAT(LinearDamping)
+	INIT_ATTRIBUTE_FLOAT(AngularDamping)
+	INIT_ATTRIBUTE_FLOAT(RSMaxPenetrate)
+	INIT_ATTRIBUTE_FLOAT(SurfaceNodeMassMultiply)
+	INIT_ATTRIBUTE_STRING(RSContactMode)
+	INIT_ATTRIBUTE_STRING(PulsePoints)
+	INIT_ATTRIBUTE_STRING(TopolgyType)
+	INIT_ATTRIBUTE_LONG(EffectTexSize)
+	INIT_ATTRIBUTE_FLOAT(BurnRadius)
+	INIT_ATTRIBUTE_FLOAT(BurnRation)
+	INIT_ATTRIBUTE_FLOAT(RSCollideMargin)
+	INIT_ATTRIBUTE_FLOAT(TubeRendRadius)
+	INIT_ATTRIBUTE_LONG(TubeFixSection)
+	INIT_ATTRIBUTE_STRING(TubeAttachs)
+	INIT_ATTRIBUTE_BOOL(IncTubeRootRadius)
+	INIT_ATTRIBUTE_BOOL(IncTubeRootWeight)
+	INIT_ATTRIBUTE_BOOL(ConnectMass)
+    INIT_ATTRIBUTE_STRING(CutMaterialName)
+    INIT_ATTRIBUTE_STRING(AttachStaticMesh)
+    INIT_ATTRIBUTE_FLOAT(AttachStaticMeshThresHold)
+
+	INIT_ATTRIBUTE_FLOAT(PointResistence)
+   	INIT_ATTRIBUTE_FLOAT(GravityValue)
+	INIT_ATTRIBUTE_FLOAT3(CustomGravityDir)
+	INIT_ATTRIBUTE_FLOAT(AddBendForce)
+	//INIT_ATTRIBUTE_FLOAT(ScalLengthRatio)
+	//INIT_ATTRIBUTE_FLOAT_VALUE(ScalLengthRatio, 1.0f)
+	INIT_ATTRIBUTE_FLOAT(HomingForce)
+
+	INIT_ATTRIBUTE_FLOAT_VALUE(RestScaleRatio, 1.0f)
+	INIT_ATTRIBUTE_FLOAT(ForceFeedbackRatio)
+	INIT_ATTRIBUTE_FLOAT_VALUE(ForceFeedbackRatio, 1.0f)
+    INIT_ATTRIBUTE_FLOAT_VALUE(AttachStaticMeshThresHold, 0.05f)    
+	INIT_ATTRIBUTE_FLOAT(PointForceMin)
+	INIT_ATTRIBUTE_FLOAT_VALUE(PointForceMin, 0.0f)
+	INIT_ATTRIBUTE_FLOAT(TubeRadius)
+	INIT_ATTRIBUTE_FLOAT_VALUE(TubeRadius, 0.5f)
+	
+	// Init attribute
+	INIT_ATTRIBUTE_FLOAT_VALUE(SphereRadius,0.4f)
+
+	INIT_ATTRIBUTE_FLOAT(SurplusRatio)
+	INIT_ATTRIBUTE_FLOAT_VALUE(SurplusRatio, 0.99f)
+
+	INIT_ATTRIBUTE_FLOAT(Diameter)
+    INIT_ATTRIBUTE_FLOAT(FireEffectValue)
+	INIT_ATTRIBUTE_STRING(ObstacleIDs)
+	INIT_ATTRIBUTE_FLOAT(CutThreshold)
+
+	INIT_ATTRIBUTE_FLOAT(CrossDir)
+	INIT_ATTRIBUTE_FLOAT(CanBluntDissection)
+
+	INIT_ATTRIBUTE_FLOAT3(InitPos)
+	INIT_ATTRIBUTE_QUATERNION(InitQuat)
+
+	INIT_ATTRIBUTE_FLOAT3(SceneMeshInitPosOffset)
+	INIT_ATTRIBUTE_FLOAT3(SceneMeshInitScaleOffset)
+
+	// Init Size
+	INIT_ATTRIBUTE_FLOAT3(InitSize)
+	INIT_ATTRIBUTE_STRING(RigidType)
+	INIT_ATTRIBUTE_BOOL(ShowMesh, true)
+	INIT_ATTRIBUTE_BOOL(CollideWithTool, true)
+	INIT_ATTRIBUTE_BOOL(StaticObject, false)
+	
+	INIT_ATTRIBUTE_STRING(InitClipPos)
+	INIT_ATTRIBUTE_STRING(InitClipQuat)
+	INIT_ATTRIBUTE_STRING(InitToolNearPoint)
+	INIT_ATTRIBUTE_STRING(BindPoint)
+
+	INIT_ATTRIBUTE_STRING(FixedPoints)
+    INIT_ATTRIBUTE_STRING(ExpandedPoints)   
+	INIT_ATTRIBUTE_STRING(CustomNormalPoints)
+    INIT_ATTRIBUTE_BOOL(UnderControl)
+
+    INIT_ATTRIBUTE_STRING(InnerLiquid)
+	INIT_ATTRIBUTE_LONG(BloodDirPointID)
+	INIT_ATTRIBUTE_BOOL(HasBloodDirPoint)
+	INIT_ATTRIBUTE_FLOAT(BloodFlowFrameNum)
+	INIT_ATTRIBUTE_STRING(CutActionParticleParam)
+
+	INIT_ATTRIBUTE_FLOAT(Force_X_K)
+	INIT_ATTRIBUTE_FLOAT(Force_X_B)
+	INIT_ATTRIBUTE_FLOAT(Force_Y_K)
+	INIT_ATTRIBUTE_FLOAT(Force_Y_B)
+	INIT_ATTRIBUTE_FLOAT(Force_Z_K)
+	INIT_ATTRIBUTE_FLOAT(Force_Z_B)
+	INIT_ATTRIBUTE_BOOL(CanOrganForce)
+	INIT_ATTRIBUTE_BOOL(CanAdhesionForce)
+	INIT_ATTRIBUTE_BOOL(JudgeOrignGeomery)
+
+	INIT_ATTRIBUTE_BOOL(CanMultPoint)
+
+	INIT_ATTRIBUTE_BOOL_VALUE(CanVision,true)
+
+	INIT_ATTRIBUTE_BOOL(CanRedScreen)
+	INIT_ATTRIBUTE_FLOAT_VALUE(OgranElectricTime,5000)
+	INIT_ATTRIBUTE_BOOL(CanOgranTube)
+	INIT_ATTRIBUTE_FLOAT_VALUE(OgranForceMaxValue,2);
+	INIT_ATTRIBUTE_FLOAT_VALUE(OgranForceMinValue,1);
+
+	//used for new connect
+	INIT_ATTRIBUTE_FLOAT(GallSideWeight)
+	INIT_ATTRIBUTE_FLOAT(LiverSideWeight)
+	INIT_ATTRIBUTE_FLOAT(ConnectStiffnessScale)
+	INIT_ATTRIBUTE_FLOAT(ConnectNodeDistanceStiffness)
+	INIT_ATTRIBUTE_FLOAT(CoonectTetraVolumeStiffness)
+
+	//used for the new mode of the old veinconnobj 
+	INIT_ATTRIBUTE_BOOL(VeinObjNewMode)
+	INIT_ATTRIBUTE_LONG_VALUE(ConnStayNum , 3)
+	INIT_ATTRIBUTE_LONG_VALUE(ConnReduceNum , 2)
+
+	m_flag_Liquids = false;
+}
+
+
+CXMLWrapperOrgan::~CXMLWrapperOrgan(void)
+{
+}
+
+void __stdcall CXMLWrapperOrgan::Set_Marks(Variant value)
+{
+	if (value.vt != SYVT_I4 && value.lVal != 0)
+	{
+		return;	
+	}
+
+	m_Marks.push_back((CXMLWrapperMark *)value.lVal);
+	m_flag_Marks = true;
+}
+
+void __stdcall CXMLWrapperOrgan::Get_Marks(Variant * pValue)
+{
+
+}
+
+void __stdcall CXMLWrapperOrgan::Set_Liquids(Variant value)
+{
+	if (value.vt != SYVT_I4 && value.lVal != 0)
+	{
+		return;	
+	}
+
+	m_Liquids.push_back((CXMLWrapperLiquid *)value.lVal);
+	m_flag_Liquids = true;
+}
+
+void __stdcall CXMLWrapperOrgan::Get_Liquids(Variant * pValue)
+{
+
+}
